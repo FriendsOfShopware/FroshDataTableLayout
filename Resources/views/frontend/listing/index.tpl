@@ -20,7 +20,12 @@ console.log(info);
                     },
                     columns: [
                         { data: "articleID" },
-                        { data: "articleName" },
+                        {
+                            data: "articleName",
+                            render: function (data, type, row) {
+                                return '<a href="' + row.linkDetails + '">' + data + '</a>';
+                            }
+                        },
                         { data: "instock" },
                         { data: "price" },
                     ]
