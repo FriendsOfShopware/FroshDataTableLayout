@@ -18,9 +18,9 @@ class ListingSubscribes implements SubscriberInterface
     private $connection;
 
     /**
-     * @var string
+     * @var null|string
      */
-    private $jsonListingCountResponse = '';
+    private $jsonListingCountResponse = null;
 
     /**
      * TemplateRegistration constructor.
