@@ -61,7 +61,11 @@ $(document).ready(function () {
 
                 delete data.columns;
                 delete data.search;
-            }
+                delete data.start;
+                delete data.length;
+                delete data.draw;
+            },
+            cache: true
         };
 
         $dataTable.DataTable(
