@@ -2,7 +2,7 @@
 
 [![Travis CI](https://travis-ci.org/FriendsOfShopware/FroshDataTableLayout.svg?branch=master)](https://travis-ci.org/FriendsOfShopware/FroshDataTableLayout)
 
-![VariantSwitch](https://raw.githubusercontent.com/FriendsOfShopware/FroshDataTableLayout/master/Resources/store/images/0.png)
+![FroshDataTableLayout](https://raw.githubusercontent.com/dneustadt/FroshDataTableLayout/master/Resources/store/images/0.png)
 
 This plugin for Shopware adds data table to the available product layouts of categories.
 The table columns can be configured through a backend app. You may add and remove columns,
