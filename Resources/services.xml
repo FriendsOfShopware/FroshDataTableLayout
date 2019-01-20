@@ -14,5 +14,9 @@
             <argument>%frosh_data_table_layout.plugin_dir%</argument>
             <tag name="shopware.event_subscriber"/>
         </service>
+        <service id="frosh_data_table_layout.subscriber.listing_subscribes" class="FroshDataTableLayout\Subscriber\ListingSubscribes">
+            <argument type="service" id="dbal_connection"/>
+            <tag name="shopware.event_subscriber"/>
+        </service>
     </services>
 </container>

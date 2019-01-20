@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../engine/Shopware/Components/Plugin/schema/menu.xsd">
+    <entries>
+        <entry>
+            <name>Data Table Columns</name>
+            <label lang="en">Data Table Columns</label>
+            <label lang="de">Data Table Spalten</label>
+            <controller>FroshDataTableLayout</controller>
+            <action>index</action>
+            <class>sprite-table-import</class>
+            <parent identifiedBy="controller">Content</parent>
+        </entry>
+    </entries>
+</menu>

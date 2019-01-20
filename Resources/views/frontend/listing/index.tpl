@@ -23,7 +23,7 @@ console.log(info);
                         {
                             data: "articleName",
                             render: function (data, type, row) {
-                                return '<a href="' + row.linkDetails + '">' + data + '</a>';
+                                {literal}return '<a href="{row.linkDetails}">{data}</a>';{/literal}
                             }
                         },
                         { data: "instock" },
