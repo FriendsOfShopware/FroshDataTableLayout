@@ -5,7 +5,10 @@ Ext.define('Shopware.apps.FroshDataTableLayout.view.column.List', {
     alias:'widget.data-table-layout-column-list',
     region:'center',
     autoScroll:true,
-    snippets:{
+    viewConfig: {
+        plugins: {
+            ptype: 'gridviewdragdrop'
+        }
     },
     initComponent: function () {
         var me = this;
@@ -37,7 +40,7 @@ Ext.define('Shopware.apps.FroshDataTableLayout.view.column.List', {
             },
             {
                 xtype: 'actioncolumn',
-                width: 130,
+                width: 60,
                 items: me.getActionColumnItems()
             }
         ];

@@ -94,10 +94,75 @@ class Shopware_Controllers_Backend_FroshDataTableLayout extends Shopware_Control
     {
         $id = (int) $this->Request()->get('id');
 
+        $qb = $this->getModelManager()->getDBALQueryBuilder();
+        $qb->select(
+                [
+                    'position',
+                ]
+            )
+            ->from('data_table_columns')
+            ->where('id = :id')
+            ->setParameter(':id', $id)
+        ;
+
+        $index = (int) $qb->execute()->fetchColumn();
+
+        $stmt = $this->container->get('dbal_connection')
+            ->prepare('UPDATE `data_table_columns` SET `position` = `position` - 1 WHERE `position` > :pos');
+
+        $stmt->bindParam(':pos', $index);
+        $stmt->execute();
+
         $this->getModelManager()->getConnection()->delete(
             'data_table_columns',
             ['id' => $id]
         );
+
+        $this->View()->assign(
+            [
+                'success' => true,
+            ]
+        );
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function updatePositionAction()
+    {
+        $id = (int) $this->Request()->get('id');
+        $index = (int) $this->Request()->get('index');
+
+        $qb = $this->getModelManager()->getDBALQueryBuilder();
+        $qb->select(
+                [
+                    'position',
+                ]
+            )
+            ->from('data_table_columns')
+            ->where('id = :id')
+            ->setParameter(':id', $id)
+        ;
+
+        $oldPos = (int) $qb->execute()->fetchColumn();
+
+        if ($oldPos > $index) {
+            $stmt = $this->container->get('dbal_connection')
+                ->prepare('UPDATE `data_table_columns` SET `position` = `position` + 1 WHERE `position` <= :pos AND `position` >= :index');
+        } else {
+            $stmt = $this->container->get('dbal_connection')
+                ->prepare('UPDATE `data_table_columns` SET `position` = `position` - 1 WHERE `position` >= :pos AND `position` <= :index');
+        }
+        $stmt->bindParam(':pos', $oldPos);
+        $stmt->bindParam(':index', $index);
+        $stmt->execute();
+
+        $stmt = $this->container->get('dbal_connection')
+            ->prepare('UPDATE `data_table_columns` SET `position` = :pos WHERE `id` = :id');
+
+        $stmt->bindParam(':pos', $index);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
 
         $this->View()->assign(
             [

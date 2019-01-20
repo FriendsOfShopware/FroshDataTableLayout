@@ -21,6 +21,9 @@ Ext.define('Shopware.apps.FroshDataTableLayout.controller.Main', {
                 openColumnDetail: me.openColumnDetail,
                 deleteColumn: me.deleteColumn
             },
+            'data-table-layout-column-list dataview':{
+                drop: me.dropRow
+            },
             'data-table-layout-column-window button[action=save]' : {
                 'click': function (btn) {
                     this.saveColumn(btn);
@@ -104,5 +107,19 @@ Ext.define('Shopware.apps.FroshDataTableLayout.controller.Main', {
                 });
             });
         }
+    },
+    dropRow: function (node, data, dropRec, dropPosition) {
+        var me = this,
+            record = data.records[0],
+            index = me.mainWindow.down('grid').getStore().indexOf(record);
+
+        Ext.Ajax.request({
+            url: '{url action="updatePosition"}',
+            method: 'POST',
+            params: {
+                id: record.get('id'),
+                index: index
+            }
+        });
     }
 });
