@@ -8,6 +8,8 @@
             serverSide: true,
             pageLength: {$criteria->getLimit()},
             searching: false,
+            ordering: false,
+            lengthMenu: [[{$criteria->getLimit()}, 25, 50], [{$criteria->getLimit()}, 25, 50]],
             ajax: {
                 data: function() {
                     var info = $('#dataTableListing').DataTable().page.info();
