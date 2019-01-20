@@ -29,8 +29,7 @@ class Shopware_Controllers_Backend_FroshDataTableLayout extends Shopware_Control
             ->from('data_table_columns')
             ->setMaxResults($limit)
             ->setFirstResult($offset)
-            ->orderBy('id', 'desc')
-            ->addOrderBy('position', 'asc')
+            ->orderBy('position', 'asc')
         ;
 
         $data = $qb->execute()->fetchAll();

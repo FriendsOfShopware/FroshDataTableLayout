@@ -40,7 +40,8 @@ class ListingSubscribes implements SubscriberInterface
     {
         return [
             'Shopware_Controllers_Widgets_Listing_fetchListing_preFetch' => 'onFetchListingPreFetch',
-            'Enlight_Controller_Action_PostDispatchSecure_Widgets_Listing' => 'onListingPostDispatch',
+            'Enlight_Controller_Action_PostDispatchSecure_Widgets_Listing' => 'onListingWidgetsPostDispatch',
+            'Enlight_Controller_Action_PostDispatchSecure_Frontend_Listing' => 'onListingFrontendPostDispatch',
         ];
     }
 
@@ -63,13 +64,35 @@ class ListingSubscribes implements SubscriberInterface
         }
     }
 
-    public function onListingPostDispatch(\Enlight_Controller_ActionEventArgs $args)
+    public function onListingWidgetsPostDispatch(\Enlight_Controller_ActionEventArgs $args)
     {
         if (
             strtolower($args->getRequest()->getActionName()) === 'listingcount' &&
             $this->jsonListingCountResponse
         ) {
             $args->getResponse()->setBody($this->jsonListingCountResponse);
+        }
+    }
+
+    public function onListingFrontendPostDispatch(\Enlight_Controller_ActionEventArgs $args)
+    {
+        if (strtolower($args->getRequest()->getActionName()) === 'index') {
+            $qb = $this->connection->createQueryBuilder();
+
+            $qb->select(
+                    [
+                        'id',
+                        'label',
+                        'property',
+                        'render',
+                        'position',
+                    ]
+                )
+                ->from('data_table_columns')
+                ->orderBy('position', 'asc')
+            ;
+
+            $args->getSubject()->View()->assign('dataTableListingColumns', $qb->execute()->fetchAll());
         }
     }
 }
