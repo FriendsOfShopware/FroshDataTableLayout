@@ -3,7 +3,8 @@ Ext.define('Shopware.apps.FroshDataTableLayout.model.Column', {
     fields: [
         { name: 'id', type: 'int', useNull: true },
         { name: 'label', type: 'string' },
-        { name: 'property', type: 'string', useNull: true }
+        { name: 'property', type: 'string' },
+        { name: 'render', type: 'string', useNull: true }
     ],
     proxy: {
         type: 'ajax',

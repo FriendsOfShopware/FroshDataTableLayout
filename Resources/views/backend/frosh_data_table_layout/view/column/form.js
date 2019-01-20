@@ -18,15 +18,27 @@ Ext.define('Shopware.apps.FroshDataTableLayout.view.column.Form', {
         return [
             {
                 fieldLabel: 'Label',
-                labelWidth: 200,
+                labelWidth: 100,
+                anchor: '100%',
                 name: 'label',
                 allowBlank: false
             },
             {
                 fieldLabel: 'Property',
-                labelWidth: 200,
+                labelWidth: 100,
+                anchor: '100%',
                 name: 'property',
                 allowBlank: false
+            },
+            {
+                fieldLabel: 'Render',
+                xtype: 'codemirrorfield',
+                mode: 'javascript',
+                name: 'render',
+                labelWidth: 100,
+                anchor: '100%',
+                height: 300,
+                allowBlank: true
             }
         ];
     }

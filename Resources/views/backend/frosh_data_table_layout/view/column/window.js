@@ -5,8 +5,8 @@ Ext.define('Shopware.apps.FroshDataTableLayout.view.column.Window', {
     border: false,
     autoShow: true,
     layout: 'fit',
-    height: 325,
-    width: 400,
+    height: 480,
+    width: 640,
     modal: true,
     initComponent: function() {
         var me = this;
