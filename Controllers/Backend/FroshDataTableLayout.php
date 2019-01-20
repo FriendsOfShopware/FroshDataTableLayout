@@ -12,9 +12,6 @@ class Shopware_Controllers_Backend_FroshDataTableLayout extends Shopware_Control
      */
     public function listColumnsAction()
     {
-        $limit = (int) $this->Request()->getParam('limit', 20);
-        $offset = (int) $this->Request()->getParam('start', 0);
-
         $qb = $this->getModelManager()->getDBALQueryBuilder();
 
         $qb->select(
@@ -27,8 +24,6 @@ class Shopware_Controllers_Backend_FroshDataTableLayout extends Shopware_Control
                 ]
             )
             ->from('data_table_columns')
-            ->setMaxResults($limit)
-            ->setFirstResult($offset)
             ->orderBy('position', 'asc')
         ;
 

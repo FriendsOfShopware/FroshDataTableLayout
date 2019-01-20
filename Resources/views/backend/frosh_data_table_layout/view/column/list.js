@@ -9,16 +9,15 @@ Ext.define('Shopware.apps.FroshDataTableLayout.view.column.List', {
     initComponent: function () {
         var me = this;
         me.columns = me.getColumns();
-        me.pagingbar = me.getPagingBar();
         me.dockedItems = [
-            me.pagingbar,
             {
-            xtype: 'toolbar',
-            dock: 'top',
-            cls: 'shopware-toolbar',
-            ui: 'shopware-ui',
-            items: me.getButtons()
-            }];
+                xtype: 'toolbar',
+                dock: 'top',
+                cls: 'shopware-toolbar',
+                ui: 'shopware-ui',
+                items: me.getButtons()
+            }
+        ];
         me.callParent(arguments);
     },
     getColumns: function () {
