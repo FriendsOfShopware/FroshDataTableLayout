@@ -25,7 +25,7 @@ class TemplateRegistration implements SubscriberInterface
      * TemplateRegistration constructor.
      *
      * @param $pluginDirectory
-     * @param \Enlight_Template_Manager            $templateManager
+     * @param \Enlight_Template_Manager $templateManager
      */
     public function __construct(
         $pluginDirectory,
@@ -51,6 +51,7 @@ class TemplateRegistration implements SubscriberInterface
     {
         $this->templateManager->addTemplateDir($this->pluginDirectory . '/Resources/views');
     }
+
     /**
      * @return \Doctrine\Common\Collections\ArrayCollection
      */

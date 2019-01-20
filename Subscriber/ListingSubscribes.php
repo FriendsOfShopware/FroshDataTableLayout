@@ -2,10 +2,8 @@
 
 namespace FroshDataTableLayout\Subscriber;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\DBAL\Connection;
 use Enlight\Event\SubscriberInterface;
-use Shopware\Components\Theme\LessDefinition;
 
 /**
  * Class ListingSubscribes
@@ -23,8 +21,6 @@ class ListingSubscribes implements SubscriberInterface
     private $jsonListingCountResponse = null;
 
     /**
-     * TemplateRegistration constructor.
-     *
      * @param Connection $connection
      */
     public function __construct(

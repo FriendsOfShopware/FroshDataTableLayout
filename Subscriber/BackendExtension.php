@@ -12,6 +12,14 @@ class BackendExtension implements SubscriberInterface
     private $pluginDir;
 
     /**
+     * @param string $pluginDir
+     */
+    public function __construct($pluginDir)
+    {
+        $this->pluginDir = $pluginDir;
+    }
+
+    /**
      * @return array
      */
     public static function getSubscribedEvents()
@@ -19,14 +27,6 @@ class BackendExtension implements SubscriberInterface
         return [
             'Enlight_Controller_Action_PostDispatch_Backend_Category' => 'onBackendCategoryPostDispatch',
         ];
-    }
-
-    /**
-     * @param string $pluginDir
-     */
-    public function __construct($pluginDir)
-    {
-        $this->pluginDir = $pluginDir;
     }
 
     /**
