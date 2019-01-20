@@ -8,7 +8,6 @@
             processing: true,
             serverSide: true,
             pageLength: {$criteria->getLimit()},
-            searching: false,
             ordering: false,
             lengthMenu: [[{$criteria->getLimit()}, 25, 50], [{$criteria->getLimit()}, 25, 50]],
             columns: [

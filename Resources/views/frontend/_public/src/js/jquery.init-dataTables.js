@@ -37,7 +37,7 @@ $(document).ready(function () {
 
     if ($dataTable.length && window.dataTableListingConfig) {
         window.dataTableListingConfig.ajax = {
-            data: function() {
+            data: function(data) {
                 var info = $dataTable.DataTable().page.info(),
                     queryObj = parseQueryString(window.location.href);
 
@@ -45,6 +45,10 @@ $(document).ready(function () {
                 if (queryObj.n) delete queryObj.n;
 
                 var queryString = !$.isEmptyObject(queryObj) ? "&" + rebuildQueryString(queryObj) : "";
+
+                if (data.search.value.length) {
+                    queryString += '&sSearch=' + data.search.value;
+                }
 
                 $dataTable.DataTable().ajax.url(
                     window.dataTableListingUrl
@@ -54,6 +58,9 @@ $(document).ready(function () {
                     + info.length
                     + queryString
                 );
+
+                delete data.columns;
+                delete data.search;
             }
         };
 
