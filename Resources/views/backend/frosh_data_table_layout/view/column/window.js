@@ -1,6 +1,7 @@
+//{namespace name=backend/plugins/frosh/datatablelayout}
 Ext.define('Shopware.apps.FroshDataTableLayout.view.column.Window', {
     extend: 'Enlight.app.Window',
-    title: 'Column erstellen/bearbeiten',
+    title: '{s name="detailWindowTitle"}{/s}',
     alias: 'widget.data-table-layout-column-window',
     border: false,
     autoShow: true,
@@ -30,13 +31,13 @@ Ext.define('Shopware.apps.FroshDataTableLayout.view.column.Window', {
 
         return ['->',
             {
-                text    : 'Cancel',
+                text    : '{s name="cancel"}{/s}',
                 scope   : me,
                 cls     : 'secondary',
                 handler : me.destroy
             },
             {
-                text    : 'Save',
+                text    : '{s name="save"}{/s}',
                 action  : 'save',
                 cls     : 'primary',
                 formBind: true

@@ -1,4 +1,4 @@
-//{namespace name=backend/base/product_box_layout}
+//{namespace name=backend/plugins/frosh/datatablelayout}
 //{block name="backend/category/view/tabs/settings" prepend}
 Ext.define('Shopware.apps.Base.store.ProductBoxLayout.Override', {
 
@@ -11,8 +11,8 @@ Ext.define('Shopware.apps.Base.store.ProductBoxLayout.Override', {
 
         me.add({
             key: 'data_table',
-            label: 'Data Table',
-            description: 'List products in a configurable table',
+            label: '{s name="productBoxLabel"}{/s}',
+            description: '{s name="productBoxDescription"}{/s}',
             image: '{link file="custom/plugins/FroshDataTableLayout/Resources/views/frontend/_public/src/images/data_table.png"}'
         });
     }

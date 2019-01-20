@@ -1,3 +1,4 @@
+//{namespace name=backend/plugins/frosh/datatablelayout}
 Ext.define('Shopware.apps.FroshDataTableLayout.controller.Main', {
     extend: 'Ext.app.Controller',
     mainWindow: null,
@@ -92,7 +93,7 @@ Ext.define('Shopware.apps.FroshDataTableLayout.controller.Main', {
 
         //use the model from the record because article in split view mode can be outdated
         if (me.record instanceof Ext.data.Model && me.record.get('id') > 0) {
-            Ext.MessageBox.confirm('', 'Delete Column?' , function (response) {
+            Ext.MessageBox.confirm('', '{s name="deleteColumn"}{/s}' , function (response) {
                 if ( response !== 'yes' ) {
                     return;
                 }

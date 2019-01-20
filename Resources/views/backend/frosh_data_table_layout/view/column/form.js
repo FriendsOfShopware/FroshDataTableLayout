@@ -1,3 +1,4 @@
+//{namespace name=backend/plugins/frosh/datatablelayout}
 Ext.define('Shopware.apps.FroshDataTableLayout.view.column.Form', {
     extend:'Ext.form.Panel',
     alias:'widget.data-table-layout-column-form',
@@ -17,21 +18,21 @@ Ext.define('Shopware.apps.FroshDataTableLayout.view.column.Form', {
     getItems: function () {
         return [
             {
-                fieldLabel: 'Label',
+                fieldLabel: '{s name="labelColumn"}{/s}',
                 labelWidth: 100,
                 anchor: '100%',
                 name: 'label',
                 allowBlank: false
             },
             {
-                fieldLabel: 'Property',
+                fieldLabel: '{s name="propertyColumn"}{/s}',
                 labelWidth: 100,
                 anchor: '100%',
                 name: 'property',
                 allowBlank: false
             },
             {
-                fieldLabel: 'Render',
+                fieldLabel: '{s name="renderColumn"}{/s}',
                 xtype: 'codemirrorfield',
                 mode: 'javascript',
                 name: 'render',

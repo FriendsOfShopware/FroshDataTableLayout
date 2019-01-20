@@ -1,3 +1,4 @@
+//{namespace name=backend/plugins/frosh/datatablelayout}
 Ext.define('Shopware.apps.FroshDataTableLayout.view.column.List', {
     extend:'Ext.grid.Panel',
     border: false,
@@ -25,12 +26,12 @@ Ext.define('Shopware.apps.FroshDataTableLayout.view.column.List', {
 
         return [
             {
-                header: 'Label',
+                header: '{s name="labelColumn"}{/s}',
                 dataIndex: 'label',
                 flex: 1
             },
             {
-                header: 'Property',
+                header: '{s name="propertyColumn"}{/s}',
                 dataIndex: 'property',
                 flex: 1
             },
@@ -47,7 +48,7 @@ Ext.define('Shopware.apps.FroshDataTableLayout.view.column.List', {
 
         return [
             {
-                text    : 'Hinzufügen',
+                text    : '{s name="add"}{/s}',
                 scope   : me,
                 iconCls : 'sprite-plus-circle-frame',
                 action : 'addColumn'
@@ -61,7 +62,7 @@ Ext.define('Shopware.apps.FroshDataTableLayout.view.column.List', {
             {
                 iconCls:'x-action-col-icon sprite-pencil',
                 cls:'duplicateColumn',
-                tooltip:'Bearbeiten',
+                tooltip:'{s name="edit"}{/s}',
                 getClass: function(value, metadata, record) {
                     if (!record.get("id")) {
                         return 'x-hidden';
@@ -74,7 +75,7 @@ Ext.define('Shopware.apps.FroshDataTableLayout.view.column.List', {
             {
                 iconCls:'x-action-col-icon sprite-minus-circle-frame',
                 cls:'duplicateColumn',
-                tooltip:'Löschen',
+                tooltip:'{s name="delete"}{/s}',
                 getClass: function(value, metadata, record) {
                     if (!record.get("id")) {
                         return 'x-hidden';

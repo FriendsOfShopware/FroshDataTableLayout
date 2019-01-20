@@ -14,7 +14,17 @@
                 {foreach $dataTableListingColumns as $column}
                     { data: "{$column.property}"{if $column.render}, render: function (data, type, row) { {$column.render} }{/if} },
                 {/foreach}
-            ]
+            ],
+            language: {
+                search: "{s name="search" namespace="frontend/plugins/frosh/datatablelayout"}{/s}",
+                info: "{s name="info" namespace="frontend/plugins/frosh/datatablelayout"}{/s}",
+                lengthMenu: "{s name="lengthMenu" namespace="frontend/plugins/frosh/datatablelayout"}{/s}",
+                processing: "{s name="processing" namespace="frontend/plugins/frosh/datatablelayout"}{/s}",
+                paginate: {
+                    next: "{s name="next" namespace="frontend/plugins/frosh/datatablelayout"}{/s}",
+                    previous: "{s name="previous" namespace="frontend/plugins/frosh/datatablelayout"}{/s}"
+                }
+            }
         };
     {/if}
 {/block}
@@ -26,7 +36,7 @@
                 <thead>
                     <tr>
                         {foreach $dataTableListingColumns as $column}
-                            <th>{$column.label}</th>
+                            <th>{s name=$column.label namespace="frontend/plugins/frosh/datatablelayout/column"}{$column.label}{/s}</th>
                         {/foreach}
                     </tr>
                 </thead>

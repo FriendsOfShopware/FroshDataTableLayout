@@ -1,6 +1,7 @@
+//{namespace name=backend/plugins/frosh/datatablelayout}
 Ext.define('Shopware.apps.FroshDataTableLayout.view.Window', {
     extend: 'Enlight.app.Window',
-    title: 'Data Table Layout',
+    title: '{s name="windowTitle"}{/s}',
     alias: 'widget.data-table-layout-main-window',
     border: false,
     autoShow: true,
