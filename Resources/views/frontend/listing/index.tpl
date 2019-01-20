@@ -3,6 +3,7 @@
 {block name="frontend_index_header_javascript_inline"}
     {$smarty.block.parent}
     {if $productBoxLayout == 'data_table'}
+        window.dataTableListingUrl = '{url module=widgets controller=listing action=listingCount sCategory=$sCategoryContent.id loadProducts=1}';
         window.dataTableListingConfig = {
             processing: true,
             serverSide: true,
@@ -10,18 +11,6 @@
             searching: false,
             ordering: false,
             lengthMenu: [[{$criteria->getLimit()}, 25, 50], [{$criteria->getLimit()}, 25, 50]],
-            ajax: {
-                data: function() {
-                    var info = $('#dataTableListing').DataTable().page.info();
-
-                    $('#dataTableListing').DataTable().ajax.url(
-                        "{url module=widgets controller=listing action=listingCount sCategory=$sCategoryContent.id loadProducts=1}?p="
-                        + (info.page + 1)
-                        + "&n="
-                        + info.length
-                    );
-                }
-            },
             columns: [
                 {foreach $dataTableListingColumns as $column}
                     { data: "{$column.property}"{if $column.render}, render: function (data, type, row) { {$column.render} }{/if} },
