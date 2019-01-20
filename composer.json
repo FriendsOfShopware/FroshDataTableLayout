@@ -1,0 +1,13 @@
+{
+  "name": "frosh/data-table-layout",
+  "keywords": ["datatable", "table", "layout", "category", "product", "ajax", "shopware", "shopware-plugin"],
+  "description": "Adds data table to the available product layouts of categories",
+  "license": "MIT",
+  "type": "shopware-plugin",
+  "extra": {
+    "installer-name": "FroshDataTableLayout"
+  },
+  "require": {
+    "composer/installers": "~1.0"
+  }
+}
