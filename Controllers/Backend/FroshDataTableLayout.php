@@ -12,6 +12,7 @@ class Shopware_Controllers_Backend_FroshDataTableLayout extends Shopware_Control
      */
     public function listColumnsAction()
     {
+        $id = (int) $this->Request()->get('id');
         $qb = $this->getModelManager()->getDBALQueryBuilder();
 
         $qb->select(
@@ -27,12 +28,17 @@ class Shopware_Controllers_Backend_FroshDataTableLayout extends Shopware_Control
             ->orderBy('position', 'asc')
         ;
 
+        if ($id) {
+            $qb->where('id = :id')->setParameter(':id', $id);
+        }
+
         $data = $qb->execute()->fetchAll();
 
-        $total = (int) $this->container->get('dbal_connection')->fetchColumn('SELECT FOUND_ROWS()');
-
         $this->View()->assign(
-            ['success' => true, 'data' => $data, 'total' => $total]
+            [
+                'success' => true,
+                'data' => $data,
+            ]
         );
     }
 
@@ -41,10 +47,15 @@ class Shopware_Controllers_Backend_FroshDataTableLayout extends Shopware_Control
      */
     public function createColumnAction()
     {
-        $params = $this->Request()->getParams();
+        $params = $this->Request()->getPost();
+
+        $position = (int) $this->container->get('dbal_connection')
+            ->fetchColumn('SELECT COUNT(*) FROM data_table_columns');
+
+        $params['position'] = $position;
 
         $this->getModelManager()->getConnection()->insert(
-            'dne_custom_js_css',
+            'data_table_columns',
             $params
         );
 
@@ -60,11 +71,11 @@ class Shopware_Controllers_Backend_FroshDataTableLayout extends Shopware_Control
      */
     public function updateColumnAction()
     {
-        $params = $this->Request()->getParams();
+        $params = $this->Request()->getPost();
         $id = (int) $this->Request()->get('id');
 
         $this->getModelManager()->getConnection()->update(
-            'dne_custom_js_css',
+            'data_table_columns',
             $params,
             ['id' => $id]
         );
@@ -84,7 +95,7 @@ class Shopware_Controllers_Backend_FroshDataTableLayout extends Shopware_Control
         $id = (int) $this->Request()->get('id');
 
         $this->getModelManager()->getConnection()->delete(
-            'dne_custom_js_css',
+            'data_table_columns',
             ['id' => $id]
         );
 

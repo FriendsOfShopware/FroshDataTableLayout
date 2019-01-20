@@ -15,8 +15,7 @@ Ext.define('Shopware.apps.FroshDataTableLayout.model.Column', {
         },
         reader: {
             type: 'json',
-            root: 'data',
-            totalProperty: 'totalCount'
+            root: 'data'
         }
     }
 });

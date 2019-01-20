@@ -47,10 +47,9 @@ Ext.define('Shopware.apps.FroshDataTableLayout.controller.Main', {
         });
 
         me.detailStore.load({
-            filters : [{
-                property: 'id',
-                value: record.get("id")
-            }],
+            params: {
+                id: record.get('id')
+            },
             callback: function(records, operation) {
                 if (operation.success !== true || !records.length) {
                     return;
@@ -76,7 +75,7 @@ Ext.define('Shopware.apps.FroshDataTableLayout.controller.Main', {
         }
 
         formBasis.updateRecord(record);
-        if (formBasis.isValid()) {          
+        if (formBasis.isValid()) {
             record.save({
                 success: function() {
                     store.load();

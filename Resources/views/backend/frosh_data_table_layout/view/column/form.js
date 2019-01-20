@@ -14,7 +14,7 @@ Ext.define('Shopware.apps.FroshDataTableLayout.view.column.Form', {
         me.callParent(arguments);
         me.loadRecord(me.record);
     },
-    getItems:function () {
+    getItems: function () {
         return [
             {
                 fieldLabel: 'Label',
