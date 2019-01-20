@@ -46,8 +46,6 @@ $(document).ready(function () {
 
                 var queryString = !$.isEmptyObject(queryObj) ? "&" + rebuildQueryString(queryObj) : "";
 
-                console.log(queryObj);
-
                 $dataTable.DataTable().ajax.url(
                     window.dataTableListingUrl
                     + "?p="
