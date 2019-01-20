@@ -23,6 +23,18 @@ class FroshDataTableLayout extends Plugin
     }
 
     /**
+     * @param InstallContext $context
+     *
+     * @throws \Exception
+     */
+    public function install(InstallContext $context)
+    {
+        $sql = file_get_contents($this->getPath() . '/Resources/sql/install.sql');
+
+        $this->container->get('shopware.db')->query($sql);
+    }
+
+    /**
      * @param ActivateContext $context
      */
     public function activate(ActivateContext $context)
