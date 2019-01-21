@@ -1,0 +1,68 @@
+<div>This plugin for Shopware adds data table to the available product layouts of categories.
+    The table columns can be configured through a backend app. You may add and remove columns,
+    edit their labels and contents, either by key of the <em>$sArticles</em> array and/or through a JavaScript
+    return value.
+</div>
+<div><br></div>
+<div>
+    To render and update the tables content the popular jQuery plugin <a href="https://datatables.net/" target="_blank">datatables</a> is used.
+</div>
+<div><br></div>
+<div>
+    The plugin comes pre-configured with a few columns. You can use these entries as a reference
+    on how to customize the table to your needs.
+</div>
+<div><br></div>
+<div>
+    You can find a working demo <a href="http://shopware.davidneustadt.de/genusswelten/tees-und-zubehoer/" target="_blank">here</a>.
+</div>
+<div><br></div><h2>Features</h2>
+<div>
+    <ul>
+        <li>Fully configurable table content through the backend app</li>
+        <li>Freely add, remove and rearrange columns</li>
+        <li>Render data table only where neccessary by assigning the custom product layout to appropriate categories</li>
+        <li>Ajax pagination and search</li>
+        <li>Use JavaScript to enhance the output values of $sArticles</li>
+    </ul>
+</div>
+<div><br></div><h2>Customize</h2>
+<div>
+    The backend app used to customize the table can be found in the "Content" menu. You can add, remove,
+    edit columns and rearrange their order by drag and drop. When editing/creating columns you will
+    find three input fields:
+</div>
+<div><br></div>
+<div>
+    <ul>
+        <li><strong>Label</strong>: Will be displayed in the head of the column. After the first request the label will be
+            stored in a text snippet with the namespace <em>frontend/plugins/frosh/datatablelayout/column</em> and the name being
+            identical to the label. You can use that snippet for translations to other languages.
+        </li>
+        <li><strong>Property</strong>: The data source of the column. This would be a key of the  <em>$sArticle</em> array, e.g.
+            <em>ordernumber</em>. You can use nested properties by seperating keys by a  <em>.</em>, e.g.  <em>image.thumbnails.0.sourceSet</em>
+        </li>
+        <li><strong>Render Script</strong>: You can optionally provide a JavaScript return statement to alter or enhance
+            the output of the data source. Please note the following exampe.
+        </li>
+    </ul>
+</div><div><br></div><h2>Example</h2>
+<div>
+    To display a thumbnail of the article in column:<br><br>
+
+    <strong>Property:</strong> image.thumbnails.0.sourceSet<br>
+    <strong>Render Script:</strong><br>
+    <pre>
+    return '&lt;img style="margin:0 auto;max-height:30px" title="' + row.articleName + '" srcset="' + data + '"&gt;';
+    </pre>
+</div>
+<div><br></div>
+<div>This plugin is part of the Github Organization&nbsp;
+    <a href="https://github.com/FriendsOfShopware/" target="_blank"
+       style="font-size: 0.9375rem;">FriendsOfShopware</a>&nbsp;.&nbsp;
+    <span style="font-size: 0.9375rem;">Maintainer of the plugin is:&nbsp;</span><a href="https://github.com/dneustadt"
+                                                                                      style="font-size: 0.9375rem;">David Neustadt</a></div>
+<div><span style="font-size: 0.9375rem;">You can find the Github repository&nbsp;</span><a
+        href="https://github.com/FriendsOfShopware/FroshDataTableLayout" style="font-size: 0.9375rem;">here</a></div>
+<div><a href="https://github.com/FriendsOfShopware/FroshDataTableLayout/issues/new">For questions or bugs please create a
+    Github Issue</a></div>

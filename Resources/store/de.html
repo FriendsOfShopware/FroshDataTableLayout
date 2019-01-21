@@ -1,0 +1,66 @@
+<div>Dieses Plugin fügt den Kategorien ein neues Produkt-Layout "Data Table" hinzu. Die Tabelle
+    kann vollständig über eine Backend App konfiguriert werden. Sie können Spalten hinzufügen und entfernen,
+    sowie die Inhalte und Labels festlegen. Sie können dazu sämtliche Schlüssel aus dem <em>$sArticles</em> array
+    referenzieren.
+</div>
+<div><br></div>
+<div>
+    Um die Tabelle zu rendern und zu aktualisieren wird das populäre jQuery plugin <a href="https://datatables.net/" target="_blank">datatables</a> verwendet.
+</div>
+<div><br></div>
+<div>
+    Das Plugin ist nach der Installation vorkonfiguriert mit ein paar Spalten. Nutzen Sie diese um eine Idee
+    zu erhalten wie Spalten angelegt und verwaltet werden können.
+</div>
+<div><br></div>
+<div>
+    Sie finden eine Demo <a href="http://shopware.davidneustadt.de/genusswelten/tees-und-zubehoer/" target="_blank">hier</a>.
+</div>
+<div><br></div><h2>Features</h2>
+<div>
+    <ul>
+        <li>Voll konfigurierbare Tabelleninhalte über die Backend App</li>
+        <li>Hinzufügen, entfernen, verschieben von beliebig vielen Spalten</li>
+        <li>Nutzen Sie das neue Produkt-Layout, um die Tabellenansicht ausschließlich in spezifischen Kategorien darzustellen</li>
+        <li>Ajax Pagination und Suche</li>
+        <li>Nutzen Sie JavaScript um die Inhalte der Tabelle anzupassen und zu erweitern</li>
+    </ul>
+</div>
+<div><br></div><h2>Anpassung</h2>
+<div>
+    Die Backend App zur Anpassung der Tabelle finden Sie unter dem Menüpunkt "Inhalte". Darüber können
+    Sie Spalten hinzufügen, entfernen, bearbeiten und per Drag and Drop verschieben. Wenn Sie eine Spalte
+    erstellen/bearbeiten finden Sie drei Eingabefelder vor:
+</div>
+<div><br></div>
+<div>
+    <ul>
+        <li><strong>Label</strong>: Wird im Kopf der Tabelle über der Spalte angezeigt. Nach dem ersten Seitenaufruf der Tabelle
+            wird das Label in einem Textbaustein mit dem Namespace <em>frontend/plugins/frosh/datatablelayout/column</em> gespeichert. Der Name des Textbausteins
+            ist identisch zum Label. Sie können in der Folge diesen Textbaustein zur Übersetzung in andere Sprechen bearbeiten.
+        </li>
+        <li><strong>Eigenschaft</strong>: Die Datenquelle für die Spalte. Entspricht einem Schlüssel des <em>$sArticle</em> array, z.B.
+            <em>ordernumber</em>. Sie können verschachtelte Werte referenzieren, indem Sie Schlüssel durch ein <em>.</em> verbinden, z.B.  <em>image.thumbnails.0.sourceSet</em>
+        </li>
+        <li><strong>Render Script</strong>: Optional können Sie JavaScript verwenden, mit dem Sie den auszugebenden Wert verändern oder erweitern können.
+            Dazu muss der anzuzeigende Wert mit einem return Befehler ausgegeben werden. Sehen Sie dazu bitte das folgende Beispiel.
+        </li>
+    </ul>
+</div><div><br></div><h2>Beispiel</h2>
+<div>
+    Thumbnail eines Artikels in einer spalte anzeigen:<br><br>
+
+    <strong>Eigenschaft:</strong> image.thumbnails.0.sourceSet<br>
+    <strong>Render Script:</strong><br>
+    <pre>
+    return '&lt;img style="margin:0 auto;max-height:30px" title="' + row.articleName + '" srcset="' + data + '"&gt;';
+    </pre>
+</div>
+<div><br></div>
+<div>Das Plugin wird von der Github Organization
+    <a href="https://github.com/FriendsOfShopware/" target="_blank" style="font-size: 0.9375rem;"> FriendsOfShopware</a>&nbsp;entwickelt.&nbsp;
+    <span style="font-size: 0.9375rem;">Maintainer des Plugins ist:&nbsp;</span><a href="https://github.com/dneustadt"
+                                                                                   style="font-size: 0.9375rem;">David Neustadt</a></div>
+<div>Das Github Repository ist zu finden <a href="https://github.com/FriendsOfShopware/FroshDataTableLayout">hier</a></div>
+<div><a href="https://github.com/FriendsOfShopware/FroshDataTableLayout/issues/new">Bei Fragen / Fehlern bitte ein Github
+    Issue erstellen</a></div>

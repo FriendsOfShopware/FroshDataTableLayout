@@ -6,7 +6,7 @@
 
 This plugin for Shopware adds data table to the available product layouts of categories.
 The table columns can be configured through a backend app. You may add and remove columns,
-their labels and contents, either by key of the `$sArticles` array and/or through a JavaScript
+edit their labels and contents, either by key of the `$sArticles` array and/or through a JavaScript
 return value.
 
 To render and update the tables content the popular jQuery plugin [datatables](https://datatables.net/) is used. 
@@ -45,7 +45,7 @@ To display a thumbnail of the article in column:
 __Property:__ image.thumbnails.0.sourceSet  
 __Render Script:__ 
 ```JavaScript
-return '<img style="margin:0 auto;max-height:30px" srcset="' + data + '">';
+return '<img style="margin:0 auto;max-height:30px" title="' + row.articleName + '" srcset="' + data + '">';
 ```
 
 ## Installation
