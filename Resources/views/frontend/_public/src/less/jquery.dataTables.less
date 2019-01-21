@@ -21,7 +21,7 @@ table.dataTable tfoot th {
 table.dataTable thead th,
 table.dataTable thead td {
   padding: 10px 18px;
-  border-bottom: 1px solid #111;
+  border-bottom: 1px solid @gray-dark;
 }
 table.dataTable thead th:active,
 table.dataTable thead td:active {
@@ -30,7 +30,7 @@ table.dataTable thead td:active {
 table.dataTable tfoot th,
 table.dataTable tfoot td {
   padding: 10px 18px 6px 18px;
-  border-top: 1px solid #111;
+  border-top: 1px solid @gray-dark;
 }
 table.dataTable thead .sorting,
 table.dataTable thead .sorting_asc,
@@ -168,7 +168,7 @@ table.dataTable.display tbody tr:hover.selected > .sorting_3, table.dataTable.or
   background-color: #a5b2cb;
 }
 table.dataTable.no-footer {
-  border-bottom: 1px solid #111;
+  border-bottom: 1px solid @gray-dark;
 }
 table.dataTable.nowrap th, table.dataTable.nowrap td {
   white-space: nowrap;
@@ -272,15 +272,20 @@ table.dataTable td {
   *zoom: 1;
   zoom: 1;
   margin-left: 2%;
-  margin-right: 2%;
   padding-top: 20px;
 }
 .dataTables_wrapper .dataTables_length {
   float: left;
+  margin-bottom: 10px;
+  .select-field {
+    width: auto;
+    vertical-align: middle;
+  }
 }
 .dataTables_wrapper .dataTables_filter {
   float: right;
   text-align: right;
+  margin-bottom: 10px;
 }
 .dataTables_wrapper .dataTables_filter input {
   margin-left: 0.5em;
@@ -415,7 +420,7 @@ table.dataTable td {
   padding: 0 !important;
 }
 .dataTables_wrapper.no-footer .dataTables_scrollBody {
-  border-bottom: 1px solid #111;
+  border-bottom: 1px solid @gray-dark;
 }
 .dataTables_wrapper.no-footer div.dataTables_scrollHead table.dataTable,
 .dataTables_wrapper.no-footer div.dataTables_scrollBody > table {

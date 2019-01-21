@@ -10,6 +10,7 @@
             pageLength: {$criteria->getLimit()},
             ordering: false,
             responsive: true,
+            autoWidth: false,
             lengthMenu: [[{$criteria->getLimit()}, 25, 50], [{$criteria->getLimit()}, 25, 50]],
             columns: [
                 {foreach $dataTableListingColumns as $column}

@@ -4834,7 +4834,7 @@
 		}
 	
 		div.children().append(
-			settings.oLanguage.sLengthMenu.replace( '_MENU_', select[0].outerHTML )
+			settings.oLanguage.sLengthMenu.replace( '_MENU_', '<div class="select-field">' + select[0].outerHTML + '</div>' )
 		);
 	
 		// Can't use `select` variable as user might provide their own and the
@@ -14391,9 +14391,9 @@
 		"sNoFooter": "no-footer",
 	
 		/* Paging buttons */
-		"sPageButton": "paginate_button",
-		"sPageButtonActive": "current",
-		"sPageButtonDisabled": "disabled",
+		"sPageButton": "btn paging--link",
+		"sPageButtonActive": "is--active",
+		"sPageButtonDisabled": "is--disabled",
 	
 		/* Striping classes */
 		"sStripeOdd": "odd",
@@ -14406,7 +14406,7 @@
 		"sWrapper": "dataTables_wrapper",
 		"sFilter": "dataTables_filter",
 		"sInfo": "dataTables_info",
-		"sPaging": "dataTables_paginate paging_", /* Note that the type is postfixed */
+		"sPaging": "panel--paging dataTables_paginate paging_", /* Note that the type is postfixed */
 		"sLength": "dataTables_length",
 		"sProcessing": "dataTables_processing",
 	
