@@ -37,7 +37,7 @@
                 <thead>
                     <tr>
                         {foreach $dataTableListingColumns as $column}
-                            <th>{s name=$column.label namespace="frontend/plugins/frosh/datatablelayout/column"}{$column.label}{/s}</th>
+                            <th>{$column.label|snippet:$column.label:"frontend/plugins/frosh/datatablelayout/column"}</th>
                         {/foreach}
                     </tr>
                 </thead>
