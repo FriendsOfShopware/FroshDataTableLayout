@@ -9,6 +9,7 @@
             serverSide: true,
             pageLength: {$criteria->getLimit()},
             ordering: false,
+            responsive: true,
             lengthMenu: [[{$criteria->getLimit()}, 25, 50], [{$criteria->getLimit()}, 25, 50]],
             columns: [
                 {foreach $dataTableListingColumns as $column}

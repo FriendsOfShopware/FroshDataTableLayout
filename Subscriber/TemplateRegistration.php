@@ -59,6 +59,7 @@ class TemplateRegistration implements SubscriberInterface
     {
         $jsFiles = [
             $this->pluginDirectory . '/Resources/views/frontend/_public/src/js/jquery.dataTables.js',
+            $this->pluginDirectory . '/Resources/views/frontend/_public/src/js/dataTables.responsive.js',
             $this->pluginDirectory . '/Resources/views/frontend/_public/src/js/jquery.init-dataTables.js',
         ];
 
@@ -74,6 +75,7 @@ class TemplateRegistration implements SubscriberInterface
             [],
             [
                 $this->pluginDirectory . '/Resources/views/frontend/_public/src/less/jquery.dataTables.less',
+                $this->pluginDirectory . '/Resources/views/frontend/_public/src/less/responsive.dataTables.less',
             ],
             $this->pluginDirectory
         );
