@@ -45,7 +45,8 @@ after_success:
 
 stages:
   - test
-  - Store-Check
+  - name: Store-Check
+    if: tag IS blank
   - name: Store-Sync
     if: branch = master
   - name: Store-Deploy
