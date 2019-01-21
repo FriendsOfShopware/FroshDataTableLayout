@@ -24,6 +24,30 @@ You can find a working demo [here](http://shopware.davidneustadt.de/genusswelten
 * Ajax pagination and search
 * Use JavaScript to enhance the output values of `$sArticles`
 
+## Customize
+
+The backend app used to customize the table can be found in the "Content" menu. You can add, remove,
+edit columns and rearrange their order by drag and drop. When editing/creating columns you will
+find three input fields:
+
+* __Label__: Will be displayed in the head of the column. After the first request the label will be
+stored in a text snippet with the namespace `frontend/plugins/frosh/datatablelayout/column` and the name being
+identical to the label. You can use that snippet for translations to other languages.
+* __Property__: The data source of the column. This would be a key of the `$sArticle` array, e.g. `ordernumber`. You can
+use nested properties by seperating keys by a `.`, e.g. `image.thumbnails.0.sourceSet`
+* __Render Script__: You can optionally provide a JavaScript return statement to alter or enhance
+the output of the data source. Please note the following exampe.
+
+### Example
+
+To display a thumbnail of the article in column:
+
+__Property:__ image.thumbnails.0.sourceSet  
+__Render Script:__ 
+```JavaScript
+return '<img style="margin:0 auto;max-height:30px" srcset="' + data + '">';
+```
+
 ## Installation
 
 * Clone this repository into a folder **FroshDataTableLayout** within the **custom/plugins** directory of the Shopware installation.
