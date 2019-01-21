@@ -17,10 +17,12 @@
 
     <description>
         <![CDATA[
+            Adds data table to the available product layouts of categories
         ]]>
     </description>
     <description lang="de">
         <![CDATA[
+            Daten-Tabelle als Produkt-Layout für Kategorien
         ]]>
     </description>
 </plugin>
