@@ -1,5 +1,5 @@
 //{namespace name=backend/plugins/frosh/datatablelayout}
-//{block name="backend/category/view/tabs/settings" prepend}
+//{block name="backend/base/attribute/form" append}
 Ext.define('Shopware.apps.Base.store.ProductBoxLayout.Override', {
 
     override: 'Shopware.apps.Base.store.ProductBoxLayout',

@@ -16,17 +16,33 @@ class ListingSubscribes implements SubscriberInterface
     private $connection;
 
     /**
+     * @var \Shopware_Components_Config
+     */
+    private $config;
+
+    /**
+     * @var \Enlight_Controller_Front
+     */
+    private $front;
+
+    /**
      * @var null|string
      */
     private $jsonListingCountResponse = null;
 
     /**
-     * @param Connection $connection
+     * @param Connection                  $connection
+     * @param \Shopware_Components_Config $config
+     * @param \Enlight_Controller_Front   $front
      */
     public function __construct(
-        Connection $connection
+        Connection $connection,
+        \Shopware_Components_Config $config,
+        \Enlight_Controller_Front $front
     ) {
         $this->connection = $connection;
+        $this->config = $config;
+        $this->front = $front;
     }
 
     /**
@@ -38,6 +54,7 @@ class ListingSubscribes implements SubscriberInterface
             'Shopware_Controllers_Widgets_Listing_fetchListing_preFetch' => 'onFetchListingPreFetch',
             'Enlight_Controller_Action_PostDispatchSecure_Widgets_Listing' => 'onListingWidgetsPostDispatch',
             'Enlight_Controller_Action_PostDispatchSecure_Frontend_Listing' => 'onListingFrontendPostDispatch',
+            'Enlight_Controller_Action_PostDispatchSecure_Frontend_Search' => 'onListingFrontendPostDispatch',
         ];
     }
 
@@ -45,7 +62,12 @@ class ListingSubscribes implements SubscriberInterface
     {
         $subject = $args->get('subject');
         $result = $args->get('result');
-        $productBoxLayout = $subject->View()->getAssign('productBoxLayout');
+
+        if ($this->front->Request()->get('isSearch')) {
+            $productBoxLayout = $this->config->get('searchProductBoxLayout');
+        } else {
+            $productBoxLayout = $subject->View()->getAssign('productBoxLayout');
+        }
 
         if ($productBoxLayout === 'data_table') {
             $recordsTotal = $result->getTotalCount();
@@ -72,7 +94,7 @@ class ListingSubscribes implements SubscriberInterface
 
     public function onListingFrontendPostDispatch(\Enlight_Controller_ActionEventArgs $args)
     {
-        if (strtolower($args->getRequest()->getActionName()) === 'index') {
+        if (in_array(strtolower($args->getRequest()->getActionName()), ['index', 'defaultsearch'])) {
             $qb = $this->connection->createQueryBuilder();
 
             $qb->select(

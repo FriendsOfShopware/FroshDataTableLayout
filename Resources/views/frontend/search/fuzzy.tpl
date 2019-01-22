@@ -1,4 +1,4 @@
-{extends file="parent:frontend/listing/index.tpl"}
+{extends file="parent:frontend/search/fuzzy.tpl"}
 
 {block name="frontend_index_header_javascript_inline"}
     {$smarty.block.parent}

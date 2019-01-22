@@ -25,14 +25,14 @@ class BackendExtension implements SubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            'Enlight_Controller_Action_PostDispatch_Backend_Category' => 'onBackendCategoryPostDispatch',
+            'Enlight_Controller_Action_PostDispatch_Backend_Base' => 'onBackendBasePostDispatch',
         ];
     }
 
     /**
      * @param \Enlight_Controller_ActionEventArgs $args
      */
-    public function onBackendCategoryPostDispatch(\Enlight_Controller_ActionEventArgs $args)
+    public function onBackendBasePostDispatch(\Enlight_Controller_ActionEventArgs $args)
     {
         /** @var $view \Enlight_View_Default */
         $view = $args->getSubject()->View();
@@ -41,7 +41,7 @@ class BackendExtension implements SubscriberInterface
             $this->pluginDir . '/Resources/views/backend/'
         );
 
-        if ($args->getRequest()->getActionName() === 'load') {
+        if ($args->getRequest()->getActionName() === 'index') {
             $templates = [
                 'base/Shopware.apps.Base.store.ProductBoxLayout.js',
             ];
