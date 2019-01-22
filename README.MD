@@ -1,6 +1,7 @@
 # Category Data Table Layout
 
 [![Travis CI](https://travis-ci.org/FriendsOfShopware/FroshDataTableLayout.svg?branch=master)](https://travis-ci.org/FriendsOfShopware/FroshDataTableLayout)
+[![Download @ Community Store](https://img.shields.io/badge/endpoint.svg?url=https://frosh.shyim.de/FroshDataTableLayout)](https://store.shopware.com/en/frosh50343050397f/category-data-table-layout.html)
 
 ![FroshDataTableLayout](https://raw.githubusercontent.com/FriendsOfShopware/FroshDataTableLayout/master/Resources/store/images/0.png)
 
