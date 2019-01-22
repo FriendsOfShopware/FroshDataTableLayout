@@ -16,33 +16,17 @@ class ListingSubscribes implements SubscriberInterface
     private $connection;
 
     /**
-     * @var \Shopware_Components_Config
-     */
-    private $config;
-
-    /**
-     * @var \Enlight_Controller_Front
-     */
-    private $front;
-
-    /**
      * @var null|string
      */
     private $jsonListingCountResponse = null;
 
     /**
-     * @param Connection                  $connection
-     * @param \Shopware_Components_Config $config
-     * @param \Enlight_Controller_Front   $front
+     * @param Connection $connection
      */
     public function __construct(
-        Connection $connection,
-        \Shopware_Components_Config $config,
-        \Enlight_Controller_Front $front
+        Connection $connection
     ) {
         $this->connection = $connection;
-        $this->config = $config;
-        $this->front = $front;
     }
 
     /**
@@ -63,11 +47,7 @@ class ListingSubscribes implements SubscriberInterface
         $subject = $args->get('subject');
         $result = $args->get('result');
 
-        if ($this->front->Request()->get('isSearch')) {
-            $productBoxLayout = $this->config->get('searchProductBoxLayout');
-        } else {
-            $productBoxLayout = $subject->View()->getAssign('productBoxLayout');
-        }
+        $productBoxLayout = $subject->View()->getAssign('productBoxLayout');
 
         if ($productBoxLayout === 'data_table') {
             $recordsTotal = $result->getTotalCount();
