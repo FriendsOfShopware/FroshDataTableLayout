@@ -1,6 +1,6 @@
 {if $productBoxLayout == 'data_table'}
     {if $Controller == 'search'}
-        window.dataTableListingUrl = '{url module=widgets controller=listing action=listingCount sCategory=$Shop->getCategory()->getId() loadProducts=1 productBoxLayout=$productBoxLayout}';
+        window.dataTableListingUrl = '{url module=widgets controller=listing action=listingCount loadProducts=1 productBoxLayout=$productBoxLayout}';
     {else}
         window.dataTableListingUrl = '{url module=widgets controller=listing action=listingCount sCategory=$sCategoryContent.id loadProducts=1}';
     {/if}

@@ -50,10 +50,6 @@ $(document).ready(function () {
                     queryString += '&sSearch=' + data.search.value;
                 }
 
-                if (queryObj.cf) {
-                    queryString += '&sCategory=' + queryObj.cf;
-                }
-
                 $dataTable.DataTable().ajax.url(
                     window.dataTableListingUrl
                     + "?p="
