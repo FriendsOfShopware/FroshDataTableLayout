@@ -23,6 +23,7 @@
             info: "{s name="info" namespace="frontend/plugins/frosh/datatablelayout"}{/s}",
             lengthMenu: "{s name="lengthMenu" namespace="frontend/plugins/frosh/datatablelayout"}{/s}",
             processing: "{s name="processing" namespace="frontend/plugins/frosh/datatablelayout"}{/s}",
+            emptyTable: "{s name="emptyTable" namespace="frontend/plugins/frosh/datatablelayout"}{/s}",
             paginate: {
                 next: "{s name="next" namespace="frontend/plugins/frosh/datatablelayout"}{/s}",
                 previous: "{s name="previous" namespace="frontend/plugins/frosh/datatablelayout"}{/s}"
