@@ -6,6 +6,7 @@ use Shopware\Components\Plugin;
 use Shopware\Components\Plugin\Context\ActivateContext;
 use Shopware\Components\Plugin\Context\InstallContext;
 use Shopware\Components\Plugin\Context\UninstallContext;
+use Shopware\Components\Plugin\Context\UpdateContext;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
@@ -54,6 +55,14 @@ class FroshDataTableLayout extends Plugin
 
         $this->container->get('dbal_connection')->query($sql);
 
+        $context->scheduleClearCache(InstallContext::CACHE_LIST_ALL);
+    }
+
+    /**
+     * @param UpdateContext $context
+     */
+    public function update(UpdateContext $context)
+    {
         $context->scheduleClearCache(InstallContext::CACHE_LIST_ALL);
     }
 }
