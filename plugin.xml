@@ -3,12 +3,17 @@
     <label lang="de">Kategorien Data Table Layout</label>
     <label lang="en">Category Data Table Layout</label>
 
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <copyright>Friends of Shopware</copyright>
     <license>MIT</license>
     <link>https://friendsofshopware.github.io/</link>
     <author>Friends of Shopware</author>
     <compatibility minVersion="5.5.0" />
+
+    <changelog version="1.0.2">
+        <changes lang="de">Unterstütze Produktlayout auf Hersteller-Seiten</changes>
+        <changes lang="en">Support Product-Layout in manufacturer listings</changes>
+    </changelog>
 
     <changelog version="1.0.1">
         <changes lang="de">Unterstütze Produktlayout in Suchergebnissen</changes>

@@ -74,7 +74,7 @@ class ListingSubscribes implements SubscriberInterface
 
     public function onListingFrontendPostDispatch(\Enlight_Controller_ActionEventArgs $args)
     {
-        if (in_array(strtolower($args->getRequest()->getActionName()), ['index', 'defaultsearch'])) {
+        if (in_array(strtolower($args->getRequest()->getActionName()), ['index', 'manufacturer', 'defaultsearch'])) {
             $qb = $this->connection->createQueryBuilder();
 
             $qb->select(
