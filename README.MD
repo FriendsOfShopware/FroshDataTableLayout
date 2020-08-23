@@ -46,7 +46,7 @@ To display a thumbnail of the article in column:
 __Property:__ image.thumbnails.0.sourceSet  
 __Render Script:__ 
 ```JavaScript
-return '<img style="margin:0 auto;max-height:30px" title="' + row.articleName + '" srcset="' + data + '">';
+return '<img style="margin:0 auto;max-height:30px" title="' + row.articleName + '" srcset="' + (data || '/themes/Frontend/Responsive/frontend/_public/src/img/no-picture.jpg') + '">';
 ```
 
 ## Installation
